@@ -8,9 +8,9 @@
       <hr>     
       <h4 class="is-size-4">Pokedex</h4>
       <hr>
-      <input class="input is-rounded" type="text" placeholder="Buscar Pokemon" v-model="buscar" >
-      <button class="button is-fullwidth is-link" id="buttonBtn" @click="buscar">Buscar</button>
-      <div v-for="(poke, index) in pokemons" :key="index">
+      <input class="input is-rounded" type="text" placeholder="Buscar Pokemon" v-model="busca" >
+      <button class="button is-fullwidth is-link" id="buttonBtn" @onclick="buscar">Buscar</button>
+      <div v-for="(poke, index) in filteredPokemons" :key="poke.url">
 
         <Pokemon :name="poke.name" :url="poke.url" :num="index + 1"/>
 
@@ -24,7 +24,7 @@
 
 <script>
 import axios from 'axios';
-import Pokemon from './components/Pokemon.vue'
+import Pokemon from './components/Pokemon.vue';
 export default {
   name: 'App',
   data(){
